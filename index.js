@@ -34,6 +34,7 @@ function FunctionGraph (options) {
         self._graph[options.center.y][i] = character;
     }
 
+    debugger;
     for (var i = 0; i < options.height; ++i) {
         var character = "|";
         if (i === options.center.y) {
@@ -42,16 +43,13 @@ function FunctionGraph (options) {
             character = "^";
         }
 
-        self._graph[options.center.x][i] = character;
+        self._graph[i][options.center.x] = character;
     }
 
     self.toString = function () {
         var str = "";
         for (var i = 0; i < self._graph.length; ++i) {
-            for (var ii = 0; ii < self._graph[i].length; ++ii) {
-                str += self._graph[ii][i];
-            }
-            str += "\n";
+            str += self._graph[i].join("") + "\n";
         }
 
         return str;
