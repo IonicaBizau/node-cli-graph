@@ -14,11 +14,10 @@ function FunctionGraph (options) {
       , y: options.height / 2
     }
 
-    debugger;
     for (var i = 0; i < options.width; ++i) {
         self._graph[i] = [];
         for (var ii = 0; ii < options.height; ++ii) {
-            self._graph[i].push(i + ":" + ii + " ");
+            self._graph[i].push(" ");
         }
     }
 
