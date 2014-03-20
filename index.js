@@ -31,7 +31,7 @@ function FunctionGraph (options) {
             character = ">";
         }
 
-        self.graph[i][options.center.y] = character;
+        self._graph[i][options.center.y] = character;
     }
 
     for (var i = 0; i < options.height; ++i) {
@@ -42,7 +42,7 @@ function FunctionGraph (options) {
             character = "^";
         }
 
-        self.graph[options.center.x][i] = character;
+        self._graph[options.center.x][i] = character;
     }
 
     self.toString = function () {
