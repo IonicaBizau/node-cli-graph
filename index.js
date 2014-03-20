@@ -14,10 +14,11 @@ function FunctionGraph (options) {
       , y: options.height / 2
     }
 
-    for (var i = 0; i < options.height; ++i) {
+    debugger;
+    for (var i = 0; i < options.width; ++i) {
         self._graph[i] = [];
-        for (var ii = 0; ii < options.width; ++ii) {
-            self._graph[i].push("");
+        for (var ii = 0; ii < options.height; ++ii) {
+            self._graph[i].push(i + ":" + ii + " ");
         }
     }
 
@@ -48,7 +49,10 @@ function FunctionGraph (options) {
     self.toString = function () {
         var str = "";
         for (var i = 0; i < self._graph.length; ++i) {
-            str += self._graph[i].join("") + "\n";
+            for (var ii = 0; ii < self._graph[i].length; ++ii) {
+                str += self._graph[i][ii];
+            }
+            str += "\n";
         }
 
         return str;
@@ -56,8 +60,8 @@ function FunctionGraph (options) {
 }
 
 var graph = new FunctionGraph ({
-    height: 20
-  , width: 30
+    height: 4
+  , width: 4
 });
 
 console.log(graph.toString());
