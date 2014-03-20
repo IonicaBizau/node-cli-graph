@@ -10,18 +10,18 @@ function FunctionGraph (options) {
     options.width = options.width || 60;
     options.height = options.height || 40;
     options.center = options.center || {
-        x: options.width / 2
-      , y: options.height / 2
+        x: Math.floor(options.width / 2)
+      , y: Math.floor(options.height / 2)
     }
 
-    for (var i = 0; i < options.width; ++i) {
+    for (var i = 0; i < options.height; ++i) {
         self._graph[i] = [];
-        for (var ii = 0; ii < options.height; ++ii) {
+        for (var ii = 0; ii < options.width; ++ii) {
             self._graph[i].push(" ");
         }
     }
 
-    self._graph[options.center.x][options.center.y] = "+";
+    self._graph[options.center.y][options.center.x] = "+";
 
     for (var i = 0; i < options.width; ++i) {
         var character = "-";
@@ -31,7 +31,7 @@ function FunctionGraph (options) {
             character = ">";
         }
 
-        self._graph[i][options.center.y] = character;
+        self._graph[options.center.y][i] = character;
     }
 
     for (var i = 0; i < options.height; ++i) {
@@ -60,7 +60,7 @@ function FunctionGraph (options) {
 
 var graph = new FunctionGraph ({
     height: 4
-  , width: 4
+  , width: 3
 });
 
 console.log(graph.toString());
