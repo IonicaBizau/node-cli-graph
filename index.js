@@ -57,8 +57,8 @@ function FunctionGraph (options) {
 }
 
 var graph = new FunctionGraph ({
-    height: 4
-  , width: 3
+    height: 30
+  , width: 50
 });
 
 console.log(graph.toString());
