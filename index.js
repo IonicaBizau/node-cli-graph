@@ -34,7 +34,6 @@ function FunctionGraph (options) {
         self._graph[options.center.y][i] = character;
     }
 
-    debugger;
     for (var i = 0; i < options.height; ++i) {
         var character = "|";
         if (i === options.center.y) {
