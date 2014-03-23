@@ -1,0 +1,30 @@
+{
+  "name": "function-graphs",
+  "version": "0.1.0",
+  "description": "Easily draw function graphs via NodeJS in Terminal.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/1.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IonicaBizau/function-graphs"
+  },
+  "keywords": [
+    "ascii",
+    "function",
+    "graphs",
+    "math",
+    "node",
+    "terminal"
+  ],
+  "author": "Ionică Bizău <bizauionica@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IonicaBizau/function-graphs/issues"
+  },
+  "homepage": "https://github.com/IonicaBizau/function-graphs"
+}
