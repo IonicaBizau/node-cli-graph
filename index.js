@@ -53,7 +53,11 @@ function FunctionGraph (options) {
             return;
         }
 
-        self._graph[y][x] = ".";
+        if (!self._graph[y]) {
+            return;
+        }
+
+        self._graph[y][x] = "#";
     }
     self.addPoint = addPoint;
 
