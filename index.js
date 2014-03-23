@@ -1,5 +1,5 @@
 function foo (x) {
-    return x / 4;
+    return Math.sin(x) * 3;
 }
 
 function FunctionGraph (options) {
@@ -46,10 +46,15 @@ function FunctionGraph (options) {
     }
 
     function addPoint (x, y) {
-        x = parseInt(x);
-        y = parseInt(y);
-        console.log(x, y);
-        self._graph[options.center.y - y][options.center.x + x] = ".";
+        x = options.center.x + parseInt(x);
+        y = options.center.y - parseInt(y);
+
+        console.log(x, y)
+        if (x >= options.width || x < 0 || y >= options.height || y < 0) {
+            return;
+        }
+
+        self._graph[y][x] = ".";
     }
     self.addPoint = addPoint;
 
@@ -68,10 +73,8 @@ var graph = new FunctionGraph ({
   , width: 50
 });
 
-graph.addPoint(0, 0);
-graph.addPoint(1, 1);
-graph.addPoint(-1, 1);
-graph.addPoint(-1, -1);
-graph.addPoint(1, -1);
+for (var i = -25; i < 48; ++i) {
+    graph.addPoint(i, foo(i));
+}
 
 console.log(graph.toString());
