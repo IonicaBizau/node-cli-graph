@@ -49,7 +49,6 @@ function FunctionGraph (options) {
         x = options.center.x + parseInt(x);
         y = options.center.y - parseInt(y);
 
-        console.log(x, y)
         if (x >= options.width || x < 0 || y >= options.height || y < 0) {
             return;
         }
