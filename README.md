@@ -59,6 +59,44 @@ console.log(graph.toString());
 $ npm install function-graphs
 $ cd node_modules
 $ npm test
+$ npm test
+
+> function-graphs@0.1.0 test /home/.../function-graphs
+> node test/1.js
+
+Below you will see the sinus graph:
+                         ^
+                         |
+                         |
+                         |
+                         |
+                         |
+                         |
+                         |
+                         |
+                         |
+                         |
+                         |
+                         |
+ ##    ##     #     ##   |##     #     #     ##
+             # #         |      # #   # #
+#--#--#--#---------#--#--#--#--#---------#--#--#->
+          # #   # #      |         # #
+    ##     #     #     ##|   ##     #     ##    ##
+                         |
+                         |
+                         |
+                         |
+                         |
+                         |
+                         |
+                         |
+                         |
+                         |
+                         |
+                         |
+
+
 ```
 
 ## License

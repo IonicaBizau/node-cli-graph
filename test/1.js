@@ -21,5 +21,6 @@ for (var i = -25; i < 48; ++i) {
     graph.addPoint(i, foo(i));
 }
 
+console.log("Below you will see the sinus graph:")
 // output graph
 console.log(graph.toString());
