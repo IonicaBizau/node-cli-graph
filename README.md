@@ -28,7 +28,7 @@ Returns the stringified graph.
 ## Example
 ```js
 // dependencies
-var FunctionGraph = require("function-graphs");
+var FunctionGraph = require("function-graph");
 
 /**
  *  We will print the graph for this function.
@@ -56,12 +56,11 @@ console.log(graph.toString());
 
 ## How to test
 ```sh
-$ npm install function-graphs
-$ cd node_modules
-$ npm test
+$ npm install function-graph
+$ cd node_modules/function-graph
 $ npm test
 
-> function-graphs@0.1.0 test /home/.../function-graphs
+> function-graph@0.1.0 test /home/.../function-graph
 > node test/1.js
 
 Below you will see the sinus graph:

@@ -1,5 +1,5 @@
 {
-  "name": "function-graphs",
+  "name": "function-graph",
   "version": "0.1.0",
   "description": "Easily draw function graphs via NodeJS in Terminal.",
   "main": "index.js",
