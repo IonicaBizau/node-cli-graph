@@ -53,3 +53,6 @@ for (var i = -25; i < 48; ++i) {
 // output graph
 console.log(graph.toString());
 ```
+
+## License
+See the LICENSE file.
