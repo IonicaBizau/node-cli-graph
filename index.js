@@ -1,7 +1,7 @@
-function foo (x) {
-    return Math.sin(x) * 3;
-}
-
+/**
+ * TODO
+ *
+ */
 function FunctionGraph (options) {
 
     var self = this;
@@ -68,13 +68,4 @@ function FunctionGraph (options) {
     };
 }
 
-var graph = new FunctionGraph ({
-    height: 30
-  , width: 50
-});
-
-for (var i = -25; i < 48; ++i) {
-    graph.addPoint(i, foo(i));
-}
-
-console.log(graph.toString());
+module.exports = FunctionGraph;
