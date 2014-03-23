@@ -17,7 +17,7 @@ Easily draw function graphs via NodeJS in Terminal.
 
 ## Methods
 
-### ``addPoint (x, y)
+### `addPoint (x, y)`
 
 `x` and `y` are the coordinates of the new point that will be added
 
