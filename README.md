@@ -101,7 +101,7 @@ Below you will see the sinus graph:
 
 ## Changelog
 
- - v0.1.0
+ - 0.1.0
    Initial release
 
 ## License
