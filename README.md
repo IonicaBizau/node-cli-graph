@@ -28,7 +28,7 @@ Returns the stringified graph.
 ## Example
 ```js
 // dependencies
-var FunctionGraph = require("../index");
+var FunctionGraph = require("function-graphs");
 
 /**
  *  We will print the graph for this function.
@@ -52,6 +52,13 @@ for (var i = -25; i < 48; ++i) {
 
 // output graph
 console.log(graph.toString());
+```
+
+## How to test
+```sh
+$ npm install function-graphs
+$ cd node_modules
+$ npm test
 ```
 
 ## License
