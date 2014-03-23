@@ -49,7 +49,7 @@ function FunctionGraph (options) {
         x = parseInt(x);
         y = parseInt(y);
         console.log(x, y);
-        self._graph[y][x] = ".";
+        self._graph[options.center.y - y][options.center.x + x] = ".";
     }
     self.addPoint = addPoint;
 
@@ -68,7 +68,10 @@ var graph = new FunctionGraph ({
   , width: 50
 });
 
-for (var i = 0; i < 15; ++i) {
-    graph.addPoint (i, 2*i)
-}
+graph.addPoint(0, 0);
+graph.addPoint(1, 1);
+graph.addPoint(-1, 1);
+graph.addPoint(-1, -1);
+graph.addPoint(1, -1);
+
 console.log(graph.toString());
