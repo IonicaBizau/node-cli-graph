@@ -15,10 +15,10 @@ var graph = new FunctionGraph ({
     height: 30
   , width: 50
   , marks: {
-        vAxis: '│'
-      , hAxis: '─'
+        hAxis: '─'
+      , vAxis: '│'
       , center: '┼'
-    , point: '·'
+      , point: '•'
   }
 });
 
