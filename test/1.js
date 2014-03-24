@@ -14,6 +14,12 @@ function foo (x) {
 var graph = new FunctionGraph ({
     height: 30
   , width: 50
+  , marks: {
+        hAxis: '─'
+      , vAxis: '│'
+      , center: '┼'
+      , point: '•'
+  }
 });
 
 // for [-25, 48) add points
