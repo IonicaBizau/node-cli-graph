@@ -14,6 +14,11 @@ Easily draw function graphs via NodeJS in Terminal.
  - `center` an object containing:
    - `x`: the *x* origin (default: width / 2)
    - `y`: the *y* origin (default: height / 2)
+ - `marks` an object containing:
+   - `hAxis`: the character for drawing horizontal axis (default '-')
+   - `vAxis`: the character for drawing vertical axis (default '|')
+   - `center`: the character for axis intersection (default '+')
+   - `point`: the character for drawing points (default '#')
 
 ## Methods
 
@@ -43,6 +48,12 @@ function foo (x) {
 var graph = new FunctionGraph ({
     height: 30
   , width: 50
+  , marks: {
+        hAxis: '─'
+      , vAxis: '│'
+      , center: '┼'
+      , point: '•'
+  }
 });
 
 // for [-25, 48) add points
@@ -65,36 +76,35 @@ $ npm test
 
 Below you will see the sinus graph:
                          ^
-                         |
-                         |
-                         |
-                         |
-                         |
-                         |
-                         |
-                         |
-                         |
-                         |
-                         |
-                         |
- ##    ##     #     ##   |##     #     #     ##
-             # #         |      # #   # #
-#--#--#--#---------#--#--#--#--#---------#--#--#->
-          # #   # #      |         # #
-    ##     #     #     ##|   ##     #     ##    ##
-                         |
-                         |
-                         |
-                         |
-                         |
-                         |
-                         |
-                         |
-                         |
-                         |
-                         |
-                         |
-
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+ ••    ••     •     ••   │••     •     •     ••
+             • •         │      • •   • •
+•──•──•──•─────────•──•──•──•──•─────────•──•──•─>
+          • •   • •      │         • •
+    ••     •     •     ••│   ••     •     ••    ••
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
 
 ```
 
