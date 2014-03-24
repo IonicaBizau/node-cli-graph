@@ -5,7 +5,7 @@ Easily draw function graphs via NodeJS in Terminal.
 
 ## Constructor
 
-### `new FunctionGraph (options)``
+### `new FunctionGraph (options)`
 
 `options` is an object containing the following fields:
 
