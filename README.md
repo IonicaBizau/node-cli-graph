@@ -110,7 +110,12 @@ Below you will see the sinus graph:
 
 ## Changelog
 
- - 0.1.0
+ - `0.1.1`
+
+   - Added `options.marks` setting ([#4](https://github.com/IonicaBizau/function-graphs/pull/4))
+
+ - `0.1.0`
+
    Initial release
 
 ## License
