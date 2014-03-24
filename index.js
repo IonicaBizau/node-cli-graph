@@ -22,6 +22,10 @@ function FunctionGraph (options) {
       , point: '#'
     };
 
+    for (var mark in defaultMarks) {
+        options.marks[mark] = options.marks[mark] || defaultMarks[mark];
+    }
+
     for (var i = 0; i < options.height; ++i) {
         self._graph[i] = [];
         for (var ii = 0; ii < options.width; ++ii) {
@@ -32,9 +36,9 @@ function FunctionGraph (options) {
     self._graph[options.center.y][options.center.x] = options.marks.center;
 
     for (var i = 0; i < options.width; ++i) {
-        var character = options.marks.hAxis || defaultMarks.hAxis;
+        var character = options.marks.hAxis;
         if (i === options.center.x) {
-            character = options.marks.center || defaultMarks.center;
+            character = options.marks.center;
         } else if (i === options.width - 1) {
             character = ">";
         }
@@ -43,9 +47,9 @@ function FunctionGraph (options) {
     }
 
     for (var i = 0; i < options.height; ++i) {
-        var character = options.marks.vAxis || defaultMarks.vAxis;
+        var character = options.marks.vAxis;
         if (i === options.center.y) {
-            character = options.marks.center || defaultMarks.center;
+            character = options.marks.center;
         } else if (i === 0) {
             character = "^";
         }
@@ -65,7 +69,7 @@ function FunctionGraph (options) {
             return;
         }
 
-        self._graph[y][x] = options.marks.point || defaultMarks.point;
+        self._graph[y][x] = options.marks.point;
     }
     self.addPoint = addPoint;
 
