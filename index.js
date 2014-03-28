@@ -20,6 +20,8 @@ function FunctionGraph (options) {
       , vAxis: '|'
       , center: '+'
       , point: '#'
+      , rightArrow: ">"
+      , topArrow: "^"
     };
 
     for (var mark in defaultMarks) {
@@ -40,7 +42,7 @@ function FunctionGraph (options) {
         if (i === options.center.x) {
             character = options.marks.center;
         } else if (i === options.width - 1) {
-            character = ">";
+            character = options.marks.rightArrow;
         }
 
         self._graph[options.center.y][i] = character;
@@ -51,7 +53,7 @@ function FunctionGraph (options) {
         if (i === options.center.y) {
             character = options.marks.center;
         } else if (i === 0) {
-            character = "^";
+            character = options.marks.topArrow;
         }
 
         self._graph[i][options.center.x] = character;
