@@ -1,6 +1,6 @@
 {
   "name": "function-graph",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Easily draw function graphs via NodeJS in Terminal.",
   "author": "Ionică Bizău <bizauionica@gmail.com>",
   "contributors": [
