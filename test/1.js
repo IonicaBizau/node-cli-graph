@@ -6,7 +6,7 @@ var FunctionGraph = require("../index");
  *
  */
 function foo (x) {
-    return Math.sin(x) * 3;
+    return Math.sin(x);
 }
 
 
@@ -23,8 +23,8 @@ var graph = new FunctionGraph ({
 });
 
 // for [-25, 48) add points
-for (var i = -25; i < 48; ++i) {
-    graph.addPoint(i, foo(i));
+for (var i = -25; i < 48; i += 0.001) {
+    graph.addPoint(i * 2, 5 * foo(i));
 }
 
 console.log("Below you will see the sinus graph:")
