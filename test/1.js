@@ -13,7 +13,7 @@ function foo (x) {
 // create a new function graph
 var graph = new FunctionGraph ({
     height: 30
-  , width: 50
+  , width: 60
   , marks: {
         hAxis: '─'
       , vAxis: '│'
