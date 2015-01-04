@@ -1,3 +1,6 @@
+// Dependencies
+var Ul = require("ul");
+
 /**
  *  Function Graph
  *  ==============
@@ -33,103 +36,115 @@
  *  Licensed under MIT license. See README file for more details.
  *
  */
-function FunctionGraph (options) {
+var FunctionGraph = module.exports = function (options) {
 
-    // use `new` to create a new instance
-    if (this.constructor !== FunctionGraph) {
-        throw new Error ("Use new constructor to create a new instance of this function.");
+    // Initialize variables
+    var self = this
+      , settings = self.options = Ul.merge(FunctionGraph.defaults, options)
+      , i = 0
+      , character = null
+      , str = ""
+      ;
+
+    self.graph = [];
+
+    // Set the center of the graph
+    settings.center = Ul.merge({
+        x: settings.width  / 2
+      , y: settings.height / 2
+    }, settings.center);
+
+    // Background
+    for (i = 0; i < settings.height; ++i) {
+        self.graph[i] = new Array(settings.aRatio * settings.width).join(settings.marks.background).split("");
     }
 
-    // get instance
-    var self = this;
+    // Center
+    self.graph[settings.center.y][settings.center.x] = settings.marks.center;
 
-    // set an empty array for _graph field
-    self._graph = [];
+    // Ox axis
+    for (i = 0; i < settings.width; ++i) {
+        character = settings.marks.hAxis;
+        if (i === settings.center.x) {
+            character = settings.marks.center;
+        } else if (i === settings.width - 1) {
+            character = settings.marks.rightArrow;
+        }
 
-    // merge defaults with options
-    options.width  = options.width || 60;
-    options.height = options.height || 40;
+        console.log(character, i);
+        self.graph[settings.center.y][i] = character;
+    }
 
-    // set the center of the graph
-    options.center = options.center || {
-        x: Math.floor (options.width  / 2)
-      , y: Math.floor (options.height / 2)
+    // Oy asis
+    for (i = 0; i < settings.height; ++i) {
+        character = settings.marks.vAxis;
+        if (i === settings.center.y) {
+            character = settings.marks.center;
+        } else if (i === 0) {
+            character = settings.marks.topArrow;
+        }
+
+        self.graph[i][settings.center.x] = character;
+    }
+
+
+    /**
+     * addPoint
+     * Adds a point on the `x` and `y` coordinates.
+     *
+     * @name addPoint
+     * @function
+     * @param {Number} x The `x` coordinate.
+     * @param {Number} y The `y` coordinate.
+     * @return {CliGraph} The CliGraph instance.
+     */
+    self.addPoint = function addPoint (x, y) {
+
+        x = settings.center.x + parseInt(x) * settings.aRatio;
+        y = settings.center.y - parseInt(y);
+
+        if (x >= settings.width || x < 0 || y >= settings.height || y < 0) {
+            return;
+        }
+
+        if (!self.graph[y]) {
+            return;
+        }
+
+        self.graph[y][x] = settings.marks.point;
+        return self;
     };
 
-    // set marks
-    options.marks = options.marks || {};
+    /**
+     * toString
+     * Stringifies the graph.
+     *
+     * @name toString
+     * @function
+     * @return {String} The stringified graph.
+     */
+    self.toString = function () {
+        str = "";
+        for (i = 0; i < self.graph.length; ++i) {
+            str += self.graph[i].join("") + "\n";
+        }
+        return str;
+    };
+};
 
-    // these are the default marks
-    defaultMarks = {
+// Defaults
+FunctionGraph.defaults = {
+    width: 60
+  , height: 40
+  , marks: {
         hAxis: '-'
       , vAxis: '|'
       , center: '+'
       , point: '#'
       , rightArrow: ">"
       , topArrow: "^"
-    };
-
-    // merge defaults
-    for (var mark in defaultMarks) {
-        options.marks[mark] = options.marks[mark] || defaultMarks[mark];
+      , background: " "
     }
-
-    // build the graph using spaces
-    for (var i = 0; i < options.height; ++i) {
-        self._graph[i] = [];
-        for (var ii = 0; ii < options.width; ++ii) {
-            self._graph[i].push(" ");
-        }
-    }
-
-    self._graph[options.center.y][options.center.x] = options.marks.center;
-
-    for (var i = 0; i < options.width; ++i) {
-        var character = options.marks.hAxis;
-        if (i === options.center.x) {
-            character = options.marks.center;
-        } else if (i === options.width - 1) {
-            character = options.marks.rightArrow;
-        }
-
-        self._graph[options.center.y][i] = character;
-    }
-
-    for (var i = 0; i < options.height; ++i) {
-        var character = options.marks.vAxis;
-        if (i === options.center.y) {
-            character = options.marks.center;
-        } else if (i === 0) {
-            character = options.marks.topArrow;
-        }
-
-        self._graph[i][options.center.x] = character;
-    }
-
-    function addPoint (x, y) {
-        x = options.center.x + parseInt(x);
-        y = options.center.y - parseInt(y);
-
-        if (x >= options.width || x < 0 || y >= options.height || y < 0) {
-            return;
-        }
-
-        if (!self._graph[y]) {
-            return;
-        }
-
-        self._graph[y][x] = options.marks.point;
-    }
-    self.addPoint = addPoint;
-
-    self.toString = function () {
-        var str = "";
-        for (var i = 0; i < self._graph.length; ++i) {
-            str += self._graph[i].join("") + "\n";
-        }
-
-        return str;
-    };
-}
-
-module.exports = FunctionGraph;
+  , center: {}
+  , aRatio: 2
+};
