@@ -1,126 +1,171 @@
-ASCII Function Graphs
-=====================
-
+CLI Graph
+=========
 Easily draw function graphs via NodeJS in Terminal.
 
-## Constructor
+## Installation
 
-### `new FunctionGraph (options)`
-
-`options` is an object containing the following fields:
-
- - `height`: the height of the graph (default: 40)
- - `width`: the width of the graph (default: 60)
- - `center` an object containing:
-   - `x`: the *x* origin (default: width / 2)
-   - `y`: the *y* origin (default: height / 2)
- - `marks` an object containing:
-   - `hAxis`: the character for drawing horizontal axis (default '-')
-   - `vAxis`: the character for drawing vertical axis (default '|')
-   - `center`: the character for axis intersection (default '+')
-   - `point`: the character for drawing points (default '#')
-
-## Methods
-
-### `addPoint (x, y)`
-
-`x` and `y` are the coordinates of the new point that will be added
-
-### `toString()`
-
-Returns the stringified graph.
+```sh
+$ npm install cli-graph
+```
 
 ## Example
+
 ```js
-// dependencies
-var FunctionGraph = require("function-graph");
+// Dependencies
+var CliGraph = require("../lib");
 
-/**
- *  We will print the graph for this function.
- *
- */
-function foo (x) {
-    return Math.sin(x);
-}
+// Create a new function graph
+var g1 = new CliGraph({
+    height: 20
+  , width: 20
+  , center: { y: 18 }
+}).setFunction(function (x) {
+    return x * x / 5;
+});
+console.log(g1.toString());
 
-
-// create a new function graph
-var graph = new FunctionGraph ({
+// Another function
+var g2 = new CliGraph({
     height: 30
-  , width: 60
+  , width: 30
   , marks: {
-        hAxis: '─'
-      , vAxis: '│'
-      , center: '┼'
-      , point: '•'
+        hAxis: '-'
+      , vAxis: '|'
+      , center: '+'
+      , point: '.'
   }
 });
 
-// for [-25, 48) add points
-for (var i = -25; i < 48; i += 0.001) {
-    graph.addPoint(i * 2, 5 * foo(i));
-}
+g2.setFunction(function (x) {
+    return x;
+});
 
-console.log("Below you will see the sinus graph:")
-// output graph
-console.log(graph.toString());
+console.log(g2.toString());
 ```
 
-## How to test
+Running the script above we get the following output:
+
 ```sh
-$ npm install function-graph
-$ cd node_modules/function-graph
-$ npm test
+                    ▲
+                    │
+  •                 │                 •
+                    │
+                    │
+                    │
+    •               │               •
+                    │
+                    │
+      •             │             •
+                    │
+        •           │           •
+                    │
+          •         │         •
+                    │
+            •       │       •
+                    │
+              •     │     •
+────────────────•─•─•─•─•──────────────▶
+                    │
 
-> function-graph@0.1.0 test /home/.../function-graph
-> node test/1.js
+                              ▲
+                              |                           .
+                              |                         .
+                              |                       .
+                              |                     .
+                              |                   .
+                              |                 .
+                              |               .
+                              |             .
+                              |           .
+                              |         .
+                              |       .
+                              |     .
+                              |   .
+                              | .
+------------------------------.----------------------------▶
+                            . |
+                          .   |
+                        .     |
+                      .       |
+                    .         |
+                  .           |
+                .             |
+              .               |
+            .                 |
+          .                   |
+        .                     |
+      .                       |
+    .                         |
+  .                           |
 
-Below you will see the sinus graph:
-                              ^
-                              │
-                              │
-                              │
-                              │
-                              │
-                              │
-                              │
-                              │
-                              │
-                              │
-       ••••         •••       │••••         •••         ••••
-       •  •        •• ••      │•  •        •• ••        •  •
-      ••  ••       •   •      ••  ••       •   ••      ••
-      •    •      ••   ••     •    •      ••    •      •
-─────••────••─────•─────••────•────••─────•─────••────••───>
-•    •      •    ••      •    •     ••   ••      •    •
-•   ••      ••   •       ••  ••      •   •       ••  ••
-••  •        •• ••        •  •│      •• ••        •  •
- ••••         •••         ••••│       •••         ••••
-                              │
-                              │
-                              │
-                              │
-                              │
-                              │
-                              │
-                              │
-                              │
-                              │
 ```
 
-## Changelog
+## Documentation
+### `new CliGraph(options)`
+Creates a new CliGraph instance.
 
- - `0.1.2`
-   - better example
-   - added comments
+Example:
 
- - `0.1.1`
+```js
+var g = new CliGraph();
+```
 
-   - Added `options.marks` setting ([#4](https://github.com/IonicaBizau/function-graphs/pull/4))
+#### Params
+- **Object** `options`: An object containing the following fields:
+ - `height` (Number): The graph height (default: `40`).
+ - `width` (Number): The graph width (default: `60`).
+ - `center` (Object): An object containing:
+   - `x` (Number): The `x` origin (default: `width / 2`)
+   - `y` (Number): The `y` origin (default: `height / 2`)
+ - `marks` (Object): An object containing:
+   - `hAxis` (String): The character for drawing horizontal axis (default `"─"`).
+   - `vAxis` (String): The character for drawing vertical axis (default "│").
+   - `center` (String): The character for axis intersection (default `"┼"`).
+   - `point` (String): The character for drawing points (default `"•"`).
+   - `rightArrow` (String): The character for drawing the right arrow (default `"▶"`).
+   - `topArrow` (String): The character for drawing the top arrow (default `"▲"`).
+   - `background` (String): The background character (default `" "`).
 
- - `0.1.0`
+#### Return
+- **CliGraph** The CliGraph instance.
 
-   Initial release
+### `addPoint(x, y)`
+Adds a point on the `x` and `y` coordinates.
+
+#### Params
+- **Number** `x`: The `x` coordinate.
+- **Number** `y`: The `y` coordinate.
+
+#### Return
+- **CliGraph** The CliGraph instance.
+
+### `toString()`
+Stringifies the graph.
+
+#### Return
+- **String** The stringified graph.
+
+### `setFunction(foo, min, max)`
+Adds the function on the graph.
+
+#### Params
+- **Function** `foo`: A function that receives `x` as the first parameter and returns the `y` value.
+- **Number** `min`: The minimum `x` (default: the lowest possible value).
+- **Number** `max`: The maximum `x`.(default: the highest possible value).
+
+#### Return
+- **CliGraph** The CliGraph instance.
+
+
+## How to contribute
+1. File an issue in the repository, using the bug tracker, describing the
+   contribution you'd like to make. This will help us to get you started on the
+   right foot.
+2. Fork the project in your account and create a new branch:
+   `your-great-feature`.
+3. Commit your changes in that branch.
+4. Open a pull request, and reference the initial issue in the pull request
+   message.
 
 ## License
-See the LICENSE file.
+See the [LICENSE](./LICENSE) file.
