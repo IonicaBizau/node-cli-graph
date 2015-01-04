@@ -24,7 +24,7 @@ var graph = new FunctionGraph ({
 
 // for [-25, 48) add points
 for (var i = -25; i < 48; i += 0.001) {
-    graph.addPoint(i, 5 * foo(i));
+    graph.addPoint(i, i);
 }
 
 console.log("Below you will see the sinus graph:")
