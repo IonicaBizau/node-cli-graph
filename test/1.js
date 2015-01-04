@@ -1,32 +1,28 @@
-// dependencies
-var FunctionGraph = require("../index");
+// Dependencies
+var CliGraph = require("../index");
 
-/**
- *  We will print the graph for this function.
- *
- */
-function foo (x) {
-    return Math.sin(x);
-}
+// Create a new function graph
+var graph = new CliGraph({
+    center: { y: 38 }
+}).setFunction(function (x) {
+    return x * x;
+});
+console.log(graph.toString());
 
-
-// create a new function graph
-var graph = new FunctionGraph ({
+// Another function
+var graph = new CliGraph({
     height: 30
-  , width: 60
+  , width: 30
   , marks: {
-        hAxis: '─'
-      , vAxis: '│'
-      , center: '┼'
-      , point: '•'
+        hAxis: '-'
+      , vAxis: '|'
+      , center: '+'
+      , point: '.'
   }
 });
 
-// for [-25, 48) add points
-for (var i = -25; i < 48; i += 0.001) {
-    graph.addPoint(i, i);
-}
+graph.setFunction(function (x) {
+    return x;
+});
 
-console.log("Below you will see the sinus graph:")
-// output graph
 console.log(graph.toString());
