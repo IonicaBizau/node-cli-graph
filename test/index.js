@@ -2,15 +2,17 @@
 var CliGraph = require("../lib");
 
 // Create a new function graph
-var graph = new CliGraph({
-    center: { y: 38 }
+var g1 = new CliGraph({
+    height: 20
+  , width: 20
+  , center: { y: 18 }
 }).setFunction(function (x) {
-    return x * x;
+    return x * x / 5;
 });
-console.log(graph.toString());
+console.log(g1.toString());
 
 // Another function
-var graph = new CliGraph({
+var g2 = new CliGraph({
     height: 30
   , width: 30
   , marks: {
@@ -21,8 +23,8 @@ var graph = new CliGraph({
   }
 });
 
-graph.setFunction(function (x) {
+g2.setFunction(function (x) {
     return x;
 });
 
-console.log(graph.toString());
+console.log(g2.toString());
