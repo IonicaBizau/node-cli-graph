@@ -7,12 +7,12 @@
     "Ionică Bizău <bizauionica@gmail.com>",
     "Radu-Bogdan Croitoru <croitoruradubogdan@gmail.com>"
   ],
-  "main": "index.js",
+  "main": "lib/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "node test/1.js"
+    "test": "node test"
   },
   "repository": {
     "type": "git",
