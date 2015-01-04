@@ -1,5 +1,5 @@
 // Dependencies
-var CliGraph = require("../index");
+var CliGraph = require("../lib");
 
 // Create a new function graph
 var graph = new CliGraph({
