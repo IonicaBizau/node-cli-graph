@@ -40,13 +40,14 @@ var FunctionGraph = module.exports = function (options) {
 
     // Initialize variables
     var self = this
-      , settings = self.options = Ul.merge(FunctionGraph.defaults, options)
+      , settings = self.options = Ul.merge(Ul.clone(FunctionGraph.defaults), options)
       , i = 0
       , character = null
       , str = ""
       ;
 
     self.graph = [];
+    settings.width *= settings.aRatio;
 
     // Set the center of the graph
     settings.center = Ul.merge({
@@ -54,9 +55,12 @@ var FunctionGraph = module.exports = function (options) {
       , y: settings.height / 2
     }, settings.center);
 
+    settings.center.x = parseInt(settings.center.x);
+    settings.center.y = parseInt(settings.center.y);
+
     // Background
     for (i = 0; i < settings.height; ++i) {
-        self.graph[i] = new Array(settings.aRatio * settings.width).join(settings.marks.background).split("");
+        self.graph[i] = new Array(settings.width).join(settings.marks.background).split("");
     }
 
     // Center
@@ -71,7 +75,6 @@ var FunctionGraph = module.exports = function (options) {
             character = settings.marks.rightArrow;
         }
 
-        console.log(character, i);
         self.graph[settings.center.y][i] = character;
     }
 
@@ -130,6 +133,26 @@ var FunctionGraph = module.exports = function (options) {
         }
         return str;
     };
+
+    /**
+     * setFunction
+     * Adds the function on the graph.
+     *
+     * @name setFunction
+     * @function
+     * @param {Function} foo A function that receives `x` as the first parameter and returns the `y` value.
+     * @param {Number} min The minimum `x` (default: the lowest possible value).
+     * @param {Number} max The maximum `x`.(default: the highest possible value).
+     * @return {CliGraph} The CliGraph instance.
+     */
+    self.setFunction = function (foo, min, max) {
+        min = min || - (settings.width + settings.center.x) / 2;
+        max = max || (settings.width + settings.center.x) / 2;
+        for (i = min; i <= max; ++i) {
+            self.addPoint(i, foo(i));
+        }
+        return self;
+    };
 };
 
 // Defaults
@@ -137,12 +160,12 @@ FunctionGraph.defaults = {
     width: 60
   , height: 40
   , marks: {
-        hAxis: '-'
-      , vAxis: '|'
-      , center: '+'
-      , point: '#'
-      , rightArrow: ">"
-      , topArrow: "^"
+        hAxis: '─'
+      , vAxis: '│'
+      , center: '┼'
+      , point: '•'
+      , rightArrow: "▶"
+      , topArrow: "▲"
       , background: " "
     }
   , center: {}
