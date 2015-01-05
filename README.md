@@ -156,7 +156,6 @@ Adds the function on the graph.
 #### Return
 - **CliGraph** The CliGraph instance.
 
-
 ## How to contribute
 1. File an issue in the repository, using the bug tracker, describing the
    contribution you'd like to make. This will help us to get you started on the
