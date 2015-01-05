@@ -1,28 +1,22 @@
 {
-  "name": "function-graph",
-  "version": "0.1.2",
+  "name": "cli-graph",
+  "version": "1.0.0",
   "description": "Easily draw function graphs via NodeJS in Terminal.",
   "author": "Ionică Bizău <bizauionica@gmail.com>",
   "contributors": [
-    {
-        "name": "Ionică Bizău",
-        "email": "bizauionica@gmail.com"
-    },
-    {
-        "name": "Radu-Bogdan Croitoru",
-        "email": "croitoruradubogdan@gmail.com"
-    }
+    "Ionică Bizău <bizauionica@gmail.com>",
+    "Radu-Bogdan Croitoru <croitoruradubogdan@gmail.com>"
   ],
-  "main": "index.js",
+  "main": "lib/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "node test/1.js"
+    "test": "node test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/IonicaBizau/function-graphs"
+    "url": "https://github.com/IonicaBizau/node-cli-graph"
   },
   "keywords": [
     "ascii",
@@ -34,7 +28,11 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/IonicaBizau/function-graphs/issues"
+    "url": "https://github.com/IonicaBizau/node-cli-graph/issues"
   },
-  "homepage": "https://github.com/IonicaBizau/function-graphs"
+  "homepage": "https://github.com/IonicaBizau/node-cli-graph",
+  "dependencies": {
+    "ul": "1.0.0"
+  },
+  "devDependencies": {}
 }
