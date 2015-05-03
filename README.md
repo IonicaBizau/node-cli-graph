@@ -29,14 +29,14 @@ var g2 = new CliGraph({
     height: 30
   , width: 30
   , marks: {
-        hAxis: '-'
-      , vAxis: '|'
-      , center: '+'
-      , point: '.'
+        hAxis: "-"
+      , vAxis: "|"
+      , center: "+"
+      , point: "."
   }
 });
 
-g2.setFunction(function (x) {
+g2.setFunctionX(function (x) {
     return x;
 });
 
@@ -101,7 +101,7 @@ Running the script above we get the following output:
 ```
 
 ## Documentation
-### `new CliGraph(options)`
+### `CliGraph(options)`
 Creates a new CliGraph instance.
 
 Example:
@@ -145,8 +145,8 @@ Stringifies the graph.
 #### Return
 - **String** The stringified graph.
 
-### `setFunction(foo, min, max)`
-Adds the function on the graph.
+### `setFunctionX(foo, min, max)`
+Adds the function on the graph, iterating the x axis.
 
 #### Params
 - **Function** `foo`: A function that receives `x` as the first parameter and returns the `y` value.
@@ -155,6 +155,18 @@ Adds the function on the graph.
 
 #### Return
 - **CliGraph** The CliGraph instance.
+
+### `setFunctionY(foo, min, max)`
+Adds the function on the graph, iterating the y axis.
+
+#### Params
+- **Function** `foo`: A function that receives `y` as the first parameter and returns the `x` value.
+- **Number** `min`: The minimum `y` (default: the lowest possible value).
+- **Number** `max`: The maximum `y`.(default: the highest possible value).
+
+#### Return
+- **CliGraph** The CliGraph instance.
+
 
 ## How to contribute
 1. File an issue in the repository, using the bug tracker, describing the
