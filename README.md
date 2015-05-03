@@ -1,6 +1,7 @@
 CLI Graph
 =========
-Easily draw function graphs via NodeJS in Terminal.
+Easily draw function in text mode.
+
 
 ## Installation
 

@@ -1,7 +1,7 @@
 {
   "name": "cli-graph",
   "version": "1.0.0",
-  "description": "Easily draw function graphs via NodeJS in Terminal.",
+  "description": "Easily draw function in text mode.",
   "author": "Ionică Bizău <bizauionica@gmail.com>",
   "contributors": [
     "Ionică Bizău <bizauionica@gmail.com>",
