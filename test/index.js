@@ -6,6 +6,12 @@ var Assert = require("assert")
 
 const CIRCLE = Fs.readFileSync(__dirname + "/circle", "utf-8");
 
+it("should merge the options correctly", function (cb) {
+    var circle = new CliGraph({ marks: { point: "foo" } });
+    Assert.equal(circle.options.marks.point, "foo");
+    cb();
+});
+
 it("should create the graph and stringify it", function (cb) {
     var circle = new CliGraph({ height: 32, width: 32 }).setFunctionX(function (x) {
         return Math.sqrt(200 - x * x);
