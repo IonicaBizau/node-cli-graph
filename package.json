@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/IonicaBizau/node-cli-graph",
   "dependencies": {
-    "ul": "1.0.0"
+    "ul": "2.1.0"
   },
   "devDependencies": {}
 }
