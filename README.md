@@ -1,7 +1,8 @@
+![](http://i.imgur.com/WMdX9YR.png)
+
 CLI Graph
 =========
-Easily draw function in text mode.
-
+Easily draw function graphs in text mode.
 
 ## Installation
 

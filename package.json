@@ -1,7 +1,7 @@
 {
   "name": "cli-graph",
   "version": "1.1.0",
-  "description": "Easily draw function in text mode.",
+  "description": "Easily draw function graphs in text mode.",
   "author": "Ionică Bizău <bizauionica@gmail.com>",
   "contributors": [
     "Ionică Bizău <bizauionica@gmail.com>",
