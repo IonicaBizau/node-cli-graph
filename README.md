@@ -116,6 +116,7 @@ var g = new CliGraph();
 - **Object** `options`: An object containing the following fields:
  - `height` (Number): The graph height (default: `40`).
  - `width` (Number): The graph width (default: `60`).
+ - `aRatio` (Number): The horizontal aspect ratio (default: `2`).
  - `center` (Object): An object containing:
    - `x` (Number): The `x` origin (default: `width / 2`)
    - `y` (Number): The `y` origin (default: `height / 2`)
