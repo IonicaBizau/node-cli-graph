@@ -132,15 +132,24 @@ var g = new CliGraph();
 #### Return
 - **CliGraph** The CliGraph instance.
 
-### `addPoint(x, y)`
+### `addPoint(x, y, chr)`
 Adds a point on the `x` and `y` coordinates.
 
 #### Params
 - **Number** `x`: The `x` coordinate.
 - **Number** `y`: The `y` coordinate.
+- **String** `chr`: The point character (default: the one provided in defaults).
 
 #### Return
 - **CliGraph** The CliGraph instance.
+
+### `isPoint(x, y, chr)`
+Checks if on given coordinates there is a point.
+
+#### Params
+- **Number** `x`: The `x` coordinate.
+- **Number** `y`: The `y` coordinate.
+- **String** `chr`: The point character (default: the one provided in defaults).
 
 ### `toString()`
 Stringifies the graph.
@@ -148,28 +157,29 @@ Stringifies the graph.
 #### Return
 - **String** The stringified graph.
 
-### `setFunctionX(foo, min, max)`
+### `setFunctionX(foo, min, max, chr)`
 Adds the function on the graph, iterating the x axis.
 
 #### Params
 - **Function** `foo`: A function that receives `x` as the first parameter and returns the `y` value.
 - **Number** `min`: The minimum `x` (default: the lowest possible value).
 - **Number** `max`: The maximum `x`.(default: the highest possible value).
+- **String** `chr`: The point character (default: the one provided in defaults).
 
 #### Return
 - **CliGraph** The CliGraph instance.
 
-### `setFunctionY(foo, min, max)`
+### `setFunctionY(foo, min, max, chr)`
 Adds the function on the graph, iterating the y axis.
 
 #### Params
 - **Function** `foo`: A function that receives `y` as the first parameter and returns the `x` value.
 - **Number** `min`: The minimum `y` (default: the lowest possible value).
 - **Number** `max`: The maximum `y`.(default: the highest possible value).
+- **String** `chr`: The point character (default: the one provided in defaults).
 
 #### Return
 - **CliGraph** The CliGraph instance.
-
 
 ## How to contribute
 1. File an issue in the repository, using the bug tracker, describing the
