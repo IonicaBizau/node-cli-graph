@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Text Graphs</title>
+        <script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="ace/ext-language_tools.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/cli-graph.js"></script>
+        <style type="text/css" media="screen">
+            #editor {
+                position: absolute;
+                top: 0;
+                right: 50%;
+                bottom: 0;
+                left: 0;
+            }
+
+            #response-editor {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 50%;
+            }
+
+            button.run-code-btn {
+                position: absolute;
+                z-index: 10;
+                right: 50%;
+                top: 0;
+                background: rgb(0, 173, 255);
+                border: none;
+                color: white;
+                padding: 10px 37px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="run-code-btn">Run Code</button>
+        <div id="editor"></div>
+        <pre id="response-editor"></pre>
+    </body>
+</html>
