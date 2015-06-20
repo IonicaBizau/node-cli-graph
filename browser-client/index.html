@@ -40,7 +40,17 @@
     </head>
     <body>
         <button class="run-code-btn">Run Code</button>
-        <div id="editor"></div>
+        <div id="editor">var circle = new CliGraph({ height: 32, width: 32 }).setFunctionX(function (x) {
+    return Math.sqrt(200 - x * x);
+}).setFunctionX(function (x) {
+    return -Math.sqrt(200 - x * x);
+}).setFunctionY(function (y) {
+    return Math.sqrt(200 - y * y);
+}).setFunctionY(function (y) {
+    return -Math.sqrt(200 - y * y);
+});
+
+__graph = circle.toString();</div>
         <pre id="response-editor"></pre>
     </body>
 </html>
