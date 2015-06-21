@@ -25,6 +25,8 @@ Easily draw function graphs in text mode.
 $ npm i cli-graph
 ```
 
+Or you can check out [**the browser version, online**](https://ionicabizau.github.io/node-cli-graph).
+
 ## Example
 
 ```js
