@@ -22,6 +22,7 @@
                 right: 0;
                 bottom: 0;
                 left: 50%;
+                overflow: auto;
             }
 
             button.run-code-btn {
@@ -43,17 +44,24 @@
     </head>
     <body>
         <button class="run-code-btn">Run Code</button>
-        <div id="editor">var circle = new CliGraph({ height: 32, width: 32 }).setFunctionX(function (x) {
-    return Math.sqrt(200 - x * x);
-}).setFunctionX(function (x) {
-    return -Math.sqrt(200 - x * x);
-}).setFunctionY(function (y) {
-    return Math.sqrt(200 - y * y);
-}).setFunctionY(function (y) {
-    return -Math.sqrt(200 - y * y);
-});
+        <div id="editor">// Create the graph
+var heart = new CliGraph({ height: 40, width: 40 });
 
-__graph = circle.toString();</div>
+// Constants
+const K = 100
+    , STEP = 0.01
+    ;
+
+// Add points
+for (var i = -K; i <= K; i += STEP) {
+    heart.addPoint(
+        16 * Math.pow(Math.sin(i), 3)
+      , 13 * Math.cos(i) - 5 * Math.cos(2 * i) - 2 * Math.cos(3 * i) - Math.cos(4 * i)
+    );
+}
+
+// Export the graph
+window.__graph = heart.toString();</div>
         <pre id="response-editor"></pre>
     </body>
 </html>
