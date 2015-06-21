@@ -36,5 +36,8 @@
   },
   "dependencies": {
     "ul": "5.0.0"
+  },
+  "blah": {
+    "h_img": "http://i.imgur.com/WMdX9YR.png"
   }
 }
