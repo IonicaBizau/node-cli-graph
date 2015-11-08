@@ -38,6 +38,7 @@
     "ul": "5.0.0"
   },
   "blah": {
-    "h_img": "http://i.imgur.com/WMdX9YR.png"
+    "h_img": "http://i.imgur.com/WMdX9YR.png",
+    "installation": "Or you can check out [**the browser version, online**](https://ionicabizau.github.io/node-cli-graph)."
   }
 }
