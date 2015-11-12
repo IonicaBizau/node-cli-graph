@@ -1,6 +1,7 @@
 [![cli-graph](http://i.imgur.com/WMdX9YR.png)](#)
 
 # cli-graph [![Support this project][donate-now]][paypal-donations]
+
 Easily draw function graphs in text mode.
 
 ## Installation
